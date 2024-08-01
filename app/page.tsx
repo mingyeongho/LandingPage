@@ -1,3 +1,7 @@
-export default function Home() {
-  return <main>Main</main>;
-}
+import { Home } from "@/src/_pages";
+
+const page = () => {
+  return <Home />;
+};
+
+export default page;

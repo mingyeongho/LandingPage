@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import { StyledProvider } from "@/src/app";
 import type { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
+const notoSansKr = Noto_Sans_KR({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "랜딩페이지 연습",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>
+      <body className={notoSansKr.className}>
         <StyledProvider>{children}</StyledProvider>
       </body>
     </html>
