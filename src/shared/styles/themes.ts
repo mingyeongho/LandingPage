@@ -7,6 +7,10 @@ const THEMES = {
 
     WHITE: "#FFFFFF",
     BLACK: "#000000",
+
+    배민: {
+      ACCENT: "#2AC1BC",
+    },
   },
 };
 
