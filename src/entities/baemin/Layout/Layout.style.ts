@@ -25,7 +25,7 @@ export const Container = styled.div<{ $thumbnailImage: string }>`
     opacity: 0;
 
     &.active {
-      animation: ${FROM_RIGHT} 0.8s ease-in 0s 1 normal forwards running;
+      animation: ${FROM_RIGHT} 0.8s ease 0s 1 normal forwards running;
     }
 
     & > i {
