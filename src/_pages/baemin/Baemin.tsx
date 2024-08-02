@@ -1,13 +1,19 @@
-import * as S from "./Baemin.style";
-import { Landing01, Landing02 } from "@/src/widgets";
+import { FloatingHeader, FloatingScroll, FloatingRider } from "@/src/widgets";
+import { FullPage, FullPageSection } from "@/src/features";
 
 const Baemin = () => {
   return (
-    // Landing 페이지들은 section tag 여야함.
-    <S.Container>
-      <Landing01 />
-      <Landing02 />
-    </S.Container>
+    <FullPage>
+      <FullPageSection>
+        <div>1</div>
+      </FullPageSection>
+      <FullPageSection>
+        <div>2</div>
+      </FullPageSection>
+      <FloatingHeader />
+      <FloatingScroll />
+      <FloatingRider />
+    </FullPage>
   );
 };
 

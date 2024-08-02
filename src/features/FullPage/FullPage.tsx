@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
+import * as S from "./FullPage.style";
 
-const MAX_SECTION = 5;
+export const FullPageContext = createContext<null | {}>(null);
 
-const WheelProvider = ({ children }: { children: React.ReactNode }) => {
+export const FullPage = ({ children }: { children: React.ReactNode }) => {
   const [currentSection, setCurrentSection] = useState(0);
+  const FullPageRef = useRef<HTMLDivElement>(null);
   const scrollingLocked = useRef(false);
 
   useEffect(() => {
@@ -14,11 +16,15 @@ const WheelProvider = ({ children }: { children: React.ReactNode }) => {
 
       if (scrollingLocked.current) return;
 
+      const sectionCount =
+        FullPageRef.current?.querySelectorAll("& > .fullPageSection").length ??
+        0;
+
       const deltaY = e.deltaY;
 
       if (deltaY < 0 && currentSection > 0) {
         setCurrentSection((prev) => prev - 1);
-      } else if (deltaY > 0 && currentSection < MAX_SECTION) {
+      } else if (deltaY > 0 && currentSection < sectionCount - 1) {
         setCurrentSection((prev) => prev + 1);
       }
 
@@ -26,7 +32,7 @@ const WheelProvider = ({ children }: { children: React.ReactNode }) => {
 
       setTimeout(() => {
         scrollingLocked.current = false;
-      }, 1500);
+      }, 1200);
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
@@ -44,7 +50,17 @@ const WheelProvider = ({ children }: { children: React.ReactNode }) => {
     });
   }, [currentSection]);
 
-  return <>{children}</>;
+  return (
+    <FullPageContext.Provider value={{ currentSection }}>
+      <div ref={FullPageRef}>{children}</div>
+    </FullPageContext.Provider>
+  );
 };
 
-export default WheelProvider;
+export const FullPageSection = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  return <S.Section className="fullPageSection">{children}</S.Section>;
+};
