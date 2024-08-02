@@ -41,7 +41,7 @@ export const FullPage = ({
 
       setTimeout(() => {
         scrollingLocked.current = false;
-      }, 1200);
+      }, 1500);
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });

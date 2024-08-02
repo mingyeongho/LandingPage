@@ -41,8 +41,12 @@ export const JUMP = keyframes`
 `;
 
 export const FROM_RIGHT = keyframes`
+    0% {
+        display: block;
+    }
     100% {
         opacity: 1;
         right: 1%;
+        
     }
 `;
