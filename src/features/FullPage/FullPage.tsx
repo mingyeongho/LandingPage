@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useEffect, useRef, useState } from "react";
-import * as S from "./FullPage.style";
+import "./FullPage.style.css";
 
 export const FullPageContext = createContext<null | {}>(null);
 
@@ -62,5 +62,5 @@ export const FullPageSection = ({
 }: {
   children: React.ReactNode;
 }) => {
-  return <S.Section className="fullPageSection">{children}</S.Section>;
+  return <section className="fullPageSection">{children}</section>;
 };
