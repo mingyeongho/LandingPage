@@ -39,3 +39,10 @@ export const JUMP = keyframes`
         transform: translateY(0);
     }
 `;
+
+export const FROM_RIGHT = keyframes`
+    100% {
+        opacity: 1;
+        right: 1%;
+    }
+`;

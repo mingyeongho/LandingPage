@@ -1,11 +1,20 @@
 "use client";
 
-import { createContext, useEffect, useRef, useState } from "react";
+import {
+  ComponentPropsWithRef,
+  createContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import "./FullPage.style.css";
 
 export const FullPageContext = createContext<null | {}>(null);
 
-export const FullPage = ({ children }: { children: React.ReactNode }) => {
+export const FullPage = ({
+  children,
+  ...props
+}: ComponentPropsWithRef<"div">) => {
   const [currentSection, setCurrentSection] = useState(0);
   const FullPageRef = useRef<HTMLDivElement>(null);
   const scrollingLocked = useRef(false);
@@ -52,7 +61,9 @@ export const FullPage = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <FullPageContext.Provider value={{ currentSection }}>
-      <div ref={FullPageRef}>{children}</div>
+      <div ref={FullPageRef} {...props}>
+        {children}
+      </div>
     </FullPageContext.Provider>
   );
 };
