@@ -3,6 +3,7 @@ import {
   FloatingScroll,
   FloatingRider,
   IndexSection,
+  FloatingPagination,
 } from "@/src/widgets";
 import { FullPage, FullPageSection } from "@/src/features";
 import { BaeminLayout } from "@/src/entities";
@@ -26,6 +27,7 @@ const Baemin = () => {
       ))}
       <FloatingHeader />
       <FloatingRider />
+      <FloatingPagination />
       <FloatingScroll />
     </FullPage>
   );

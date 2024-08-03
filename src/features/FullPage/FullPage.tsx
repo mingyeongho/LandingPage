@@ -11,6 +11,7 @@ import "./FullPage.style.css";
 
 export const FullPageContext = createContext<null | {
   currentSection: number;
+  onClickPage: (page: number) => void;
 }>(null);
 
 export const FullPage = ({
@@ -21,6 +22,10 @@ export const FullPage = ({
   const FullPageRef = useRef<HTMLDivElement>(null);
   const scrollingLocked = useRef(false);
   const firstMounted = useRef(true);
+
+  const onClickPage = (page: number) => {
+    setCurrentSection(page);
+  };
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -73,7 +78,7 @@ export const FullPage = ({
   }, [currentSection]);
 
   return (
-    <FullPageContext.Provider value={{ currentSection }}>
+    <FullPageContext.Provider value={{ currentSection, onClickPage }}>
       <div ref={FullPageRef} {...props}>
         {children}
       </div>
