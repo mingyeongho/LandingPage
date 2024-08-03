@@ -9,7 +9,9 @@ import {
 } from "react";
 import "./FullPage.style.css";
 
-export const FullPageContext = createContext<null | {}>(null);
+export const FullPageContext = createContext<null | {
+  currentSection: number;
+}>(null);
 
 export const FullPage = ({
   children,

@@ -25,8 +25,8 @@ const Baemin = () => {
         </FullPageSection>
       ))}
       <FloatingHeader />
-      <FloatingScroll />
       <FloatingRider />
+      <FloatingScroll />
     </FullPage>
   );
 };

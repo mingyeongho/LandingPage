@@ -9,4 +9,8 @@ export const RiderButton = styled(Image)`
   right: 0;
   opacity: 1;
   transition: opacity 0.5s ease-in-out 0.3s;
+
+  &[aria-disabled="true"] {
+    opacity: 0;
+  }
 `;
