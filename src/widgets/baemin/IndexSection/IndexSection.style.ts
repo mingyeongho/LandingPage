@@ -3,7 +3,7 @@
 import { ICONS, ZOOM_IN } from "@/src/shared";
 import styled from "styled-components";
 
-export const BgImage = styled.section<{ $image: string }>`
+export const BgImage = styled.div<{ $image: string }>`
   position: absolute;
   inset: 0;
   background-image: url(${({ $image }) => $image});

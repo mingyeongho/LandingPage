@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { MAIN_ASSETS } from "./constants";
-import * as S from "./Landing01.style";
+import * as S from "./IndexSection.style";
 import { ICONS } from "@/src/shared";
 
-const Landing01 = () => {
+const IndexSection = () => {
   const random = Math.floor(Math.random() * 5);
 
   return (
-    <section>
+    <>
       <S.BgImage $image={MAIN_ASSETS[random].bg} />
       <S.Contents>
         <Image
@@ -35,8 +35,8 @@ const Landing01 = () => {
           </S.DownloadWrapper>
         </S.DownloadContainer>
       </S.Contents>
-    </section>
+    </>
   );
 };
 
-export default Landing01;
+export default IndexSection;
