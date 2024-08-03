@@ -1,6 +1,7 @@
 const ICONS = {
   배민: {
     ACTIVE_DOT: "/baemin/active_dot.png",
+    APP_DOWNLOAD: "/baemin/app_download.png",
     APP_STORE: "/baemin/appstore.png",
     GOOGLE_PLAY: "/baemin/googleplay.png",
     ICON_BLOG: "/baemin/iconBlog.png",
