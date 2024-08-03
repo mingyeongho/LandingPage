@@ -41,6 +41,8 @@ export const DownloadWrapper = styled.div`
     font-weight: 800;
     line-height: 1.38;
     color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   }
 
   & > .store_download {
