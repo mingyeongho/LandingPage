@@ -1,6 +1,6 @@
 "use client";
 
-import { FADE_IN } from "@/src/shared";
+import { FADE_IN, ICONS } from "@/src/shared";
 import styled from "styled-components";
 
 export const Header = styled.header`
@@ -17,6 +17,10 @@ export const Header = styled.header`
   opacity: 0;
 
   animation: ${FADE_IN} 1s ease 0.3s 1 normal forwards;
+
+  &[aria-expanded="true"] {
+    padding: 60px 60px 0px 50px;
+  }
 `;
 
 export const SocialContainer = styled.div`
@@ -37,6 +41,26 @@ export const SocialContainer = styled.div`
 
     & > img {
       cursor: pointer;
+    }
+  }
+
+  & > div {
+    display: block;
+    opacity: 1;
+    width: 140px;
+    height: 48px;
+    margin-left: 8px;
+    background-image: url(${ICONS.배민.APP_DOWNLOAD});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &[aria-disabled="true"] {
+      display: none;
+      opacity: 0;
     }
   }
 `;
