@@ -21,7 +21,6 @@ export const FullPage = ({
   const [currentSection, setCurrentSection] = useState(0);
   const FullPageRef = useRef<HTMLDivElement>(null);
   const scrollingLocked = useRef(false);
-  const firstMounted = useRef(true);
 
   const onClickPage = (page: number) => {
     setCurrentSection(page);
@@ -60,22 +59,19 @@ export const FullPage = ({
   }, [currentSection, children]);
 
   useEffect(() => {
-    // 새로고침 시 스크롤이 맨 위로 천천히 올라가서 각 섹션의 애니메이션이 미리 실행되어지는 문제 해결
-    // 처음 로딩 시 스크롤이 스무스하지 않고 위로 올라가도록
-    if (firstMounted.current) {
-      window.scrollTo({
-        top: 0,
-      });
-      firstMounted.current = false;
-      return;
-    }
-
     const sectionHeight = window.innerHeight;
     window.scrollTo({
       top: currentSection * sectionHeight,
       behavior: "smooth",
     });
   }, [currentSection]);
+
+  // 새로고침 시 스크롤이 맨 위로 가도록 설정
+  useEffect(() => {
+    window.onbeforeunload = function pushRefresh() {
+      window.scrollTo(0, 0);
+    };
+  }, []);
 
   return (
     <FullPageContext.Provider value={{ currentSection, onClickPage }}>
